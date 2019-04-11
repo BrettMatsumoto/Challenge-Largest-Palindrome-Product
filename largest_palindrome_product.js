@@ -5,41 +5,31 @@
  *  @return {Object} an object containing the two factors used to produce
  *                   the palindromeNumber and the palindromeNumber itself.
  */
-module.exports = function (digits) {
-  var factor_0 = '9';
-  var factor_1 = '9';
+module.exports = function(digits) {
+  var factor_0 = 0;
+  var factor_1 = 0;
   var palindromeNumber = 0;
 
   // do your work here
 
-  while (factor_0.length && factor_1.length < digits) {
-    factor_0 += factor_0;
-    factor_1 += factor_1;
-  }
-  let factor0ToNumber = Number(factor_0);
-  let factor1ToNumber = Number(factor_1);
-
-  console.log('factor0 as number: ' + factor0ToNumber);
-  console.log('factor1 as number: ' + factor1ToNumber);
-
-  palindromeNumber = factor0ToNumber * factor1ToNumber;
-
-  console.log('palindrome as Number: ' + palindromeNumber);
-
-  let palindromeString = palindromeNumber.toString();
-  console.log('Palindrome as String: ' + palindromeString);
-
-  for (let i = 0; i <= palindromeString.length; i++){
-    if (palindromeString[i] !== palindromeString[palindromeString.length - i]){
-      factor0ToNumber--
-      i = 0;
-      console.log(factor0ToNumber);
+  const checkPalindrome = function(x, y, digits) {
+    if (palindromeNumber.split().reverse() === palindromeNumber.split()) {
+      return Number(palindromeNumber);
     }
-  }
+
+    while (palindromeNumber.split().reverse() !== palindromeNumber.split()) {
+      x = Math.pow(10, digits) - 1;
+      y = Math.pow(10, digits) - 1;
+      product = x * y;
+      console.log(x);
+      console.log(y);
+    }
+  };
+  checkPalindrome(factor_0, factor_1);
 
   return {
     factor_0: factor_0,
     factor_1: factor_1,
-    palindromeNumber: palindromeNumber
+    palindromeNumber: palindromeNumber,
   };
 };
