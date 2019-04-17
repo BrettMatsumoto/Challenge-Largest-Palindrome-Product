@@ -12,20 +12,31 @@ module.exports = function(digits) {
 
   // do your work here
 
-  const checkPalindrome = function(x, y, digits) {
-    if (palindromeNumber.split().reverse() === palindromeNumber.split()) {
-      return Number(palindromeNumber);
+  function checkPalindrome(num) {
+    let numToString = num.toString();
+    const numOfDigits = numToString.length;
+    for (let i = 0; i < Math.floor(numOfDigits / 2); i++) {
+      if (
+        numToString.substring(i, i + 1) !==
+        numToString.substring(numOfDigits - i - 1, numOfDigits - i)
+      ) {
+        return false;
+      }
     }
+    return true;
+  }
 
-    while (palindromeNumber.split().reverse() !== palindromeNumber.split()) {
-      x = Math.pow(10, digits) - 1;
-      y = Math.pow(10, digits) - 1;
-      product = x * y;
-      console.log(x);
-      console.log(y);
+  for (let i = 10 ** (digits - 1); i < 10 ** digits; i++) {
+    for (let j = 10 ** (digits - 1); j < 10 ** digits; j++) {
+      if (checkPalindrome(i * j)) {
+        if (i * j > palindromeNumber) {
+          palindromeNumber = i * j;
+          factor_0 = i;
+          factor_1 = j;
+        }
+      }
     }
-  };
-  checkPalindrome(factor_0, factor_1);
+  }
 
   return {
     factor_0: factor_0,
