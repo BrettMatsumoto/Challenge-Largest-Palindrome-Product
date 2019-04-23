@@ -10,20 +10,11 @@ module.exports = function(digits) {
   var factor_1 = 0;
   var palindromeNumber = 0;
 
-  // do your work here
-
   function checkPalindrome(num) {
     let numToString = num.toString();
-    const numOfDigits = numToString.length;
-    for (let i = 0; i < Math.floor(numOfDigits / 2); i++) {
-      if (
-        numToString.substring(i, i + 1) !==
-        numToString.substring(numOfDigits - i - 1, numOfDigits - i)
-      ) {
-        return false;
-      }
-    }
-    return true;
+    const reverse = numToString.split('').reverse().join('');
+    
+    return numToString === reverse;
   }
 
   for (let i = 10 ** (digits - 1); i < 10 ** digits; i++) {
